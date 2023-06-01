@@ -6,6 +6,9 @@ services:
     labels:
       shipyard.route: '/'
     build: '.'
+    depends_on:
+      - redis
+      - postgres
     environment:
       DATABASE_URL: 'postgres://obscure-user:obscure-password@postgres/app'
       DEV: ${DEV}
@@ -21,6 +24,9 @@ services:
     labels:
       shipyard.before: 'poetry run flask db upgrade'
     build: '.'
+    depends_on:
+      - redis
+      - postgres
     environment:
       DATABASE_URL: 'postgres://obscure-user:obscure-password@postgres/app'
       DEV: ${DEV}
