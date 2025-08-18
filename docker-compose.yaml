@@ -62,7 +62,7 @@ services:
     depends_on:
       postgres:
         condition: service_healthy
-    entrypoint: [ "sh", "-c", "pg_isready -h db -U myuser && echo 'Postgres is ready!'" ]
+    entrypoint: [ "sh", "-c", "pg_isready -h postgres -U myuser && echo 'Postgres is ready!'" ]
 
 volumes:
   postgres:
