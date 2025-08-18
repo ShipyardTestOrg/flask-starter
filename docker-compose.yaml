@@ -1,7 +1,7 @@
 version: '3'
 
 services:
-
+  
   web:
     labels:
       shipyard.route: '/'
@@ -44,15 +44,25 @@ services:
       POSTGRES_PASSWORD: 'obscure-password'
       POSTGRES_DB: 'app'
       PGDATA: '/var/lib/postgresql/data/pgdata'
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U myuser"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
     volumes:
       - 'postgres:/var/lib/postgresql/data'
-    ports:
-      - '5432'
 
   redis:
     image: 'redis:5.0-alpine'
     ports:
       - '6379'
+
+  app:
+    image: postgres:16
+    depends_on:
+      db:
+        condition: service_healthy
+    entrypoint: [ "sh", "-c", "pg_isready -h db -U myuser && echo 'Postgres is ready!'" ]
 
 volumes:
   postgres:
