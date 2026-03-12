@@ -4,7 +4,8 @@ A basic Flask starter project to get started with Docker Compose and Shipyard.
 
 ## Includes
 
-- Jinja + Bootstrap (from CDN)
+
+- Jinja + Bootstrap (from CDNX)
 - uWSGI entrypoint
 - Celery (with example heartbeat task configured)
 - Flask-SQLAlchemy
