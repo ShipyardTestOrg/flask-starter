@@ -5,6 +5,7 @@ services:
   web:
     labels:
       shipyard.route: '/'
+      shipyard.depends_ond: 'result'
     build: '.'
     depends_on:
       - redis
