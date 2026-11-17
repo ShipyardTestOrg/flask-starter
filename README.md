@@ -19,3 +19,8 @@ A basic Flask starter project to get started with Docker Compose and Shipyard.
 - Run `make develop` at the root of this project.
 - Visit the app at http://localhost:8080.
 - Make your code changes! The app will reload whenever you save.
+
+<!-- lite bundle test5 PR environment check -->
+<!-- rebuild check 1959 -->
+<!-- per-build flags check 2345 -->
+<!-- new hostname check 0249 -->
